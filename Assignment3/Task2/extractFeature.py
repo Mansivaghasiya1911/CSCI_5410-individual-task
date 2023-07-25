@@ -9,6 +9,7 @@ s3 = boto3.client('s3')
 
 def extract_entities(content):
     # Regular expression to find named entities and capitalized words
+    # Regex taken from https://stackoverflow.com/questions/36536495/capitalized-words-with-regular-expression
     pattern = r'(?<!\.\s)(?:\b[A-Z][a-z]+\b) || \b[A-Z][A-Z0-9_]*\b'
     named_entities = re.findall(pattern, content)
 
